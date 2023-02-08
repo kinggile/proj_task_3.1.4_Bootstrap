@@ -36,34 +36,65 @@
     </nav>
 </header>
 
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Age</th>
-        <th>Email</th>
-        <th>Role</th>
-    </tr>
-    </thead>
+<div class="row vh-100">
+    <div class="col-md-2 bg-white" style="margin: 15px auto">
+        <nav class="nav flex-column nav-pills">
+            <a class="nav-link h6" th:href="admin">Admin</a>
+            <a class="nav-link active h6" th:href="user">User</a>
+        </nav>
+    </div>
 
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td th:text="${users.id}"></td>
-        <td th:text="${users.firstname}"></td>
-        <td th:text="${users.lastname}"></td>
-        <td th:text="${users.age}"></td>
-        <td th:text="${users.email}"></td>
-        <td th:text="${users.roles}"></td>
-    </tr>
-    </tbody>
-</table>
+    <div class="col-md-10 bg-light px-md-5" style="margin: 15px auto">
+        <div class="row">
 
-<br>
-<hr/>
+            <div class="col-lg">
+                <h2>User information-page</h2>
+            </div>
 
-<a th:href="@{/logout}">Logout</a>
+            <!--            Vse user-->
+            <div>
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                    <tr>
+                        <th class="px-4 h6">About user</th>
+                    </tr>
+                    <tr>
+                        <td class="bg-white p4">
+                            <table class="table table-bordered   table-striped">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr></tr>
+                                    <tr class="border-top">
+                                        <th>ID</th>
+                                        <th>First name</th>
+                                        <th>Last name</th>
+                                        <th>Age</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="user : ${users}">
+                                        <td th:text="*{users.id}"></td>
+                                        <td th:text="*{users.firstname}"></td>
+                                        <td th:text="*{users.lastname}"></td>
+                                        <td th:text="*{users.age}"></td>
+                                        <td th:text="*{users.email}"></td>
+                                        <td th:text="*{users.roles}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
