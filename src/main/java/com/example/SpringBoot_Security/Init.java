@@ -36,10 +36,13 @@ public class Init {
         roleService.save(roleUser);
 
 
-        User admin = new User("admin", "$2a$12$x2jGJqzzWh7mp1c4bNW/MePnpkb5Q.garsy0PN9cmK3Ja0UQ3N432",
-                "admin@mail.ru", setAdminRole()); // pass = admin
-        User user = new User("user", "$2a$12$AyaqSH0/6oYd6yBC2sKfgutia.m2Cz//roNJ0scMTDYmBEba8.87q",
-                "user@mail.ru", setRoleUser()); // pass = user
+        User admin = new User("Admin", "Admin", 20, "admin@mail.ru",
+                "admin", "$2a$12$x2jGJqzzWh7mp1c4bNW/MePnpkb5Q.garsy0PN9cmK3Ja0UQ3N432",
+                setAdminRole()); // pass = admin
+
+        User user = new User("User", "User", 20, "user@mail.ru",
+                "user", "$2a$12$x2jGJqzzWh7mp1c4bNW/MePnpkb5Q.garsy0PN9cmK3Ja0UQ3N432",
+                setRoleUser()); // pass = user
 
         userService.save(admin);
         userService.save(user);

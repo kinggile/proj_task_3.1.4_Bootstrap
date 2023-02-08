@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 
 @Controller
 @RequestMapping("/admin")
@@ -20,9 +22,12 @@ public class AdminController {
     }
 
     @GetMapping()
-    public String showAllUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
-        return "admin/users";
+    public String showAllUsers(Model model, Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("users", user);
+        model.addAttribute("email", user);
+        model.addAttribute("allUser", userService.getAllUsers());
+        return "admin/adminPanel";
     }
 
 //    @GetMapping("/{id}")

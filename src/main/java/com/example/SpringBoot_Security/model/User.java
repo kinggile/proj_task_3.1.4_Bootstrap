@@ -20,12 +20,19 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String firstname;
+
+    private String lastname;
+
+    private int age;
+
+    @Column(unique = true)
+    private String email;
+
     private String username;
 
     private String password;
 
-    @Column(unique = true)
-    private String email;
 
     // by default @ManyToMany uses lazy
     @ManyToMany
@@ -36,10 +43,13 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
-    public User(String username, String password, String email, Set<Role> roles) {
+    public User(String firstname, String lastname, int age, String email, String username, String password, Set<Role> roles) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.age = age;
+        this.email = email;
         this.username = username;
         this.password = password;
-        this.email = email;
         this.roles = roles;
     }
 
