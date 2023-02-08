@@ -53,18 +53,18 @@
 
             <!--            Vse user-->
             <div>
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered" style="margin: 10px auto auto;">
                     <tbody>
                     <tr>
-                        <th class="px-4 h6">About user</th>
+                        <th class="px-4 h4">About user</th>
                     </tr>
                     <tr>
                         <td class="bg-white p4">
-                            <table class="table table-bordered   table-striped">
-                                <table class="table table-striped">
-                                    <thead>
+                            <table class="table table-striped">
+                                <table class="table table-borderless">
+                                    <thead class="border-top border-bottom">
                                     <tr></tr>
-                                    <tr class="border-top">
+                                    <tr class="border-top border-bottom">
                                         <th>ID</th>
                                         <th>First name</th>
                                         <th>Last name</th>
@@ -74,7 +74,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="user : ${users}">
+                                    <tr class="border-top" th:each="user : ${users}">
                                         <td th:text="*{users.id}"></td>
                                         <td th:text="*{users.firstname}"></td>
                                         <td th:text="*{users.lastname}"></td>
