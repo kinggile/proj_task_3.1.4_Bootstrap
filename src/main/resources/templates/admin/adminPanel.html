@@ -56,6 +56,7 @@
                 </h2>
             </div>
 
+
             <div>
                 <ul class="nav nav-tabs" style="margin: 15px auto auto;">
                     <li class="nav-item">
@@ -66,6 +67,15 @@
                     </li>
                 </ul>
             </div>
+
+<!--            Добавление нового юзера-->
+            12321321
+            123213
+            21321312
+            11
+            1
+            1
+            1
 
             <!--Таблица всех юзеров-->
             <div>
@@ -99,36 +109,44 @@
                                     <td th:text="${user.getEmail()}">123</td>
                                     <td th:text="${user.getRoles()}">123</td>
                                     <td>
-                                        <button type="button" class="btn btn-info" style="color: white">Edit</button>
-                                        <div class="modal" tabindex="-1">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="modalBasicLabel">Modal title</h5>
-                                                        <button type="button" class="btn-close"
-                                                                aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">...</div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save changes
-                                                        </button>
-                                                    </div>
+                                        <button type="button" class="btn btn-info" style="color: white"
+                                                data-toggle="modal" data-target="modalEdit"
+                                                th:href="${user.getId()}">Edit
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger"
+                                                data-toggle="modal">Delete
+                                        </button>
+                                    </td>
+
+                                    <!--                Модальное окно редактирования-->
+                                    <div class="modal" th:id="${user.getId()}" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modalEdit">Modal title</h5>
+                                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    123213
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary">Close</button>
+                                                    <button type="button" class="btn btn-primary">Edit</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                    </td>
+                                    </div>
+
                                 </tr>
                                 </tbody>
                             </table>
-
                         </td>
                     </tr>
                     </tbody>
                 </table>
+
             </div>
             <!--Конец таблицы всех юзеров-->
 
