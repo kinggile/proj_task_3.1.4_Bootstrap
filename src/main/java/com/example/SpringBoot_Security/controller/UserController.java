@@ -21,17 +21,17 @@ import java.security.Principal;
 public class UserController {
 
     private final UserService userService;
-    private final UserRepository userRepository;
+
 
     @Autowired
-    public UserController(UserService userService, UserRepository userRepository) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.userRepository = userRepository;
     }
 
     @GetMapping()
     public String info(Model model, Principal principal) {
-        model.addAttribute("user", userService.findByUsername(principal.getName()));
+        model.addAttribute("users", userService.findByUsername(principal.getName()));
+        model.addAttribute("email", userService.findByUsername(principal.getName()));
         return "user/userInfo";
     }
 }
