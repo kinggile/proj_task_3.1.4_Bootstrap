@@ -54,17 +54,18 @@
             </div>
 
             <nav>
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs" style="margin: 15px auto auto;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Users table</a>
+                        <a class="nav-link active" aria-current="page" href="#adminPanel">Users table</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">New user</a>
+                        <a class="nav-link" href="#newUser">New user</a>
                     </li>
                 </ul>
             </nav>
 
-            <!--            Vse user-->
+
+                <!--            Vse user-->
             <div>
                 <table class="table table-striped table-bordered">
                     <tbody>
@@ -73,29 +74,29 @@
                     </tr>
                     <tr>
                         <td class="bg-white p4">
-                            <table class="table table-bordered   table-striped">
-                                <table class="table table-striped">
-                                    <thead>
+                            <table class="table table-striped">
+                                <table class="table table-borderless">
+                                    <thead class="border-top border-bottom">
                                     <tr></tr>
-                                    <tr class="border-top">
-                                        <th>ID</th>
-                                        <th>First name</th>
-                                        <th>Last name</th>
-                                        <th>Age</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                    <tr class="border-top border-bottom">
+                                        <th scope="col">ID</th>
+                                        <th scope="col">First name</th>
+                                        <th scope="col">Last name</th>
+                                        <th scope="col">Age</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="user : ${allUser}">
-                                        <td th:text="${user.getId()}"></td>
-                                        <td th:text="${user.getFirstname()}"></td>
-                                        <td th:text="${user.getLastname()}"></td>
-                                        <td th:text="${user.getAge()}"></td>
-                                        <td th:text="${user.getEmail()}"></td>
-                                        <td th:text="${user.getRoles()}"></td>
+                                    <tr class="border-top" th:each="user : ${allUser}">
+                                        <td th:text="${user.getId()}">213</td>
+                                        <td th:text="${user.getFirstname()}">123</td>
+                                        <td th:text="${user.getLastname()}">123</td>
+                                        <td th:text="${user.getAge()}">123</td>
+                                        <td th:text="${user.getEmail()}">123</td>
+                                        <td th:text="${user.getRoles()}">123</td>
                                         <td>EDIT</td>
                                         <td>DELETE</td>
                                     </tr>
