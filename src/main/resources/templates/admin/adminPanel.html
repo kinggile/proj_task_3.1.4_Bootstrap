@@ -16,9 +16,9 @@
 
             <!--                слева email            -->
             <span class="navbar-text text-white" style="margin: auto 10px auto">
-                <strong><th:block th:text="${email.getEmail()}"></th:block></strong>
+                <strong><th:block th:text="${email.getEmail()}"></th:block>213@mail.ru</strong>
                 <a>with roles: </a>
-                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRole()}"></th:block>
+                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRole()}">ROLE</th:block>
              </span>
 
             <!--                кнопка выхода-->
@@ -35,7 +35,7 @@
         </div>
     </nav>
 </header>
-<!--vh-100-->
+
 <div class="d-flex flex-column flex-md-row vh-100">
 
     <!--    Левая часть-->
@@ -98,8 +98,29 @@
                                     <td th:text="${user.getAge()}">123</td>
                                     <td th:text="${user.getEmail()}">123</td>
                                     <td th:text="${user.getRoles()}">123</td>
-                                    <td>EDIT</td>
-                                    <td>DELETE</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info" style="color: white">Edit</button>
+                                        <div class="modal" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="modalBasicLabel">Modal title</h5>
+                                                        <button type="button" class="btn-close"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">...</div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary">Close</button>
+                                                        <button type="button" class="btn btn-primary">Save changes
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
