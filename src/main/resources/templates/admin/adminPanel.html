@@ -16,9 +16,9 @@
 
             <!--                слева email            -->
             <span class="navbar-text text-white" style="margin: auto 10px auto">
-                <strong><th:block th:text="${email.getEmail()}"></th:block>213@mail.ru</strong>
+                <strong><th:block th:text="${email.getEmail()}"></th:block></strong>
                 <a>with roles: </a>
-                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRole()}">ROLE</th:block>
+                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRole()}"></th:block>
              </span>
 
             <!--                кнопка выхода-->
@@ -39,12 +39,13 @@
 <div class="d-flex flex-column flex-md-row vh-100">
 
     <!--    Левая часть-->
-    <div class="col-md-2 bg-white p-0">
-        <nav class="nav flex-column nav-pills" style="margin: 15px auto">
+    <div class="col-md-2 bg-white">
+        <nav class="nav flex-column nav-pills p-0" style="margin: 15px auto">
             <a class="nav-link active px-4 h6" th:href="admin">Admin</a>
             <a class="nav-link px-4 h6" th:href="user">User</a>
         </nav>
     </div>
+    <!--    конец левой части-->
 
     <!--    Права часть-->
     <div class="col-md-10 bg-light px-5" style="margin: 15px auto">
@@ -60,22 +61,30 @@
             <div>
                 <ul class="nav nav-tabs" style="margin: 15px auto auto;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#adminPanel">Users table</a>
+                        <a class="nav-link active" data-toggle="tab" role="tab"
+                           href="#adminPanel">Users table</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#newUser">New user</a>
+                        <a class="nav-link" data-toggle="tab" role="tab"
+                           href="#newUser" id="newUser">New user</a>
                     </li>
                 </ul>
             </div>
 
-<!--            Добавление нового юзера-->
-            12321321
-            123213
-            21321312
-            11
-            1
-            1
-            1
+            <!--            Добавление нового юзера-->
+            <div class="tab-content">
+                <div class="tab-pane fade" id="new1" aria-labelledby="newUser" role="tabpanel">
+                    <div class="border-bottom">
+                        <h4>Add new user</h4>
+                    </div>
+                    <div class="container-fluid bg-white">
+                        <form th:action="@{admin/newUser}" th:method="post">
+                            <a>123</a>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
 
             <!--Таблица всех юзеров-->
             <div>
@@ -153,6 +162,7 @@
         </div>
 
     </div>
+    <!--    конец правой части-->
 </div>
 
 
