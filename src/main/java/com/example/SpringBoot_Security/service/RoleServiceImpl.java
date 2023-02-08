@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 public class RoleServiceImpl implements RoleService {
     private RoleRepository roleRepository;
 
-    @Autowired
     public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }

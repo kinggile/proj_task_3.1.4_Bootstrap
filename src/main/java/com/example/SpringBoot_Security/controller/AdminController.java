@@ -16,7 +16,6 @@ public class AdminController {
 
     private final UserService userService;
 
-    @Autowired
     public AdminController(UserService userService) {
         this.userService = userService;
     }
@@ -29,12 +28,6 @@ public class AdminController {
         model.addAttribute("allUser", userService.getAllUsers());
         return "admin/adminPanel";
     }
-
-//    @GetMapping("/{id}")
-//    public String showUser(Model model, @PathVariable("id") int id) {
-//        model.addAttribute("user", userService.getOneUser(id));
-//        return "oneUser";
-//    }
 
     @GetMapping("/new")
     public String newUser(@ModelAttribute("user") User user) {

@@ -23,7 +23,6 @@ public class Init {
     private final Role roleAdmin = new Role("ROLE_ADMIN");
     private final Role roleUser = new Role("ROLE_USER");
 
-    @Autowired
     public Init(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
