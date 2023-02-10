@@ -2,6 +2,7 @@ package com.example.SpringBoot_Security.service;
 
 import com.example.SpringBoot_Security.model.Role;
 import com.example.SpringBoot_Security.model.User;
+import com.example.SpringBoot_Security.repository.RoleRepository;
 import com.example.SpringBoot_Security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,9 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,9 +20,17 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+//    private Set<Role> roles;
+    private final RoleService roleService;
 
-    public UserServiceImpl(UserRepository userRepository) {
+//    public void setRoles(Set<Role> roles) {
+//        this.roles = roles;
+//    }
+
+    public UserServiceImpl(UserRepository userRepository,
+                           RoleService roleService) {
         this.userRepository = userRepository;
+        this.roleService = roleService;
     }
 
     @Override
@@ -34,7 +41,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void save(User user) {
-        //  user.setId(user.getId());
+//        user.setRoles(roleService.getAllRolesSet());
         userRepository.save(user);
     }
 

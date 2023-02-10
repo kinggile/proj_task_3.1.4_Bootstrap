@@ -79,7 +79,7 @@
                             <div class="h4" style="margin: auto 7px auto; padding: 9px">Add new user</div>
                         </div>
                         <div class="container-fluid bg-white" style="padding: 20px">
-                            <form th:method="POST" th:action="@{/admin}">
+                            <form method="POST" th:action="@{/admin}">
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>First name</b></div>
@@ -123,10 +123,12 @@
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>Role</b></div>
-                                        <select class="form-select" size="2" th:name="role">
+                                        <select multiple class="form-control" size="2" id="role">
                                             <option th:each="role : ${roleUser}"
-                                                    th:value="${role.role}"
-                                                    th:text="${role.roleWithoutPrefix}">
+                                            th:value="${role.getRole()}"
+                                            th:text="${role.getRoleWithoutPrefix()}">
+
+
                                             </option>
                                         </select>
                                     </div>

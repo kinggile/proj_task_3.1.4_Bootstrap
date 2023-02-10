@@ -6,7 +6,9 @@ import com.example.SpringBoot_Security.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -26,5 +28,10 @@ public class RoleServiceImpl implements RoleService {
         return roleRepository.findAll();
     }
 
-
+//    @Override
+//    public Set<Role> getAllRolesSet() {
+//        Set<Role> roles = new HashSet<>();
+//        roles.add(getAllRoles().get(0));
+//        return roles;
+//    }
 }

@@ -19,14 +19,6 @@ public class Role implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firstname;
-
-    private String lastname;
-
-    private int age;
-
-    private String email;
-
     private String role;
 
     public String getRoleWithoutPrefix() {

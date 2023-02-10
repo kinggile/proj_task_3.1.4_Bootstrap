@@ -28,12 +28,13 @@ public class AdminController {
         model.addAttribute("users", user);
         model.addAttribute("email", user);
         model.addAttribute("allUser", userService.getAllUsers());
+        model.addAttribute("roleUser", roleService.getAllRoles());
         return "admin/adminPanel";
     }
 
     @GetMapping("/new")
     public String newUser(@ModelAttribute("user") User user, Model model) {
-        model.addAttribute("roleUser", roleService.getAllRoles());
+//        model.addAttribute("roleUser", roleService.getAllRoles());
         return "admin/adminPanel";
     }
 
