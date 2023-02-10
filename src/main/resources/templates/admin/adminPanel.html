@@ -105,9 +105,9 @@
 
                                 <div class="row justify-content-center">
                                     <div class="col-3">
-                                        <div class="text-center"><b>Email</b></div>
-                                        <input type="text" name="email" class="form-control"
-                                               placeholder="Email">
+                                        <div class="text-center"><b>Username</b></div>
+                                        <input type="text" name="username" class="form-control"
+                                               placeholder="Username">
                                     </div>
                                 </div>
 
@@ -158,7 +158,7 @@
                                         <th scope="col">First name</th>
                                         <th scope="col">Last name</th>
                                         <th scope="col">Age</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col">Role</th>
                                         <th scope="col">Edit</th>
                                         <th scope="col">Delete</th>
@@ -170,7 +170,7 @@
                                         <td th:text="${user.getFirstname()}">123</td>
                                         <td th:text="${user.getLastname()}">123</td>
                                         <td th:text="${user.getAge()}">123</td>
-                                        <td th:text="${user.getEmail()}">123</td>
+                                        <td th:text="${user.getUsername()}">123</td>
                                         <td th:text="${user.getRoles()}">123</td>
                                         <td>
                                             <button type="button" class="btn btn-info" style="color: white"
