@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -83,7 +84,7 @@
                                     <div class="col-3">
                                         <div class="text-center"><b>First name</b></div>
                                         <input type="text" name="firstname" class="form-control"
-                                               placeholder="First name" >
+                                               placeholder="First name">
                                     </div>
                                 </div>
 
@@ -122,16 +123,17 @@
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>Role</b></div>
-                                        <select multiple class="form-control" size="2">
-                                            <option>
-
+                                        <select class="form-select" size="2" th:name="role">
+                                            <option th:each="role : ${roleUser}"
+                                                    th:value="${role.role}"
+                                                    th:text="${role.roleWithoutPrefix}">
                                             </option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-12 text-center" style="padding: 14px" >
+                                    <div class="col-12 text-center" style="padding: 14px">
                                         <button type="submit" class="btn btn-success">ADD</button>
                                     </div>
                                 </div>
@@ -139,8 +141,6 @@
                         </div>
                     </div>
 
-                    <!--                    forms-->
-                    <!--                    forms-->
 
                 </div>
 
