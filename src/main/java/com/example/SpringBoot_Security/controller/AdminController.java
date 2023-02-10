@@ -31,7 +31,7 @@ public class AdminController {
 
     @GetMapping("/new")
     public String newUser(@ModelAttribute("user") User user) {
-        return "admin/newUser";
+        return "admin/adminPanel";
     }
 
     @PostMapping()
