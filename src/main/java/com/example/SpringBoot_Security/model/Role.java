@@ -29,6 +29,10 @@ public class Role implements GrantedAuthority {
 
     private String role;
 
+    public String getRoleWithoutPrefix() {
+        return role.substring(5);
+    }
+
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 

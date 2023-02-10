@@ -18,7 +18,7 @@
             <span class="navbar-text text-white" style="margin: auto 10px auto">
                 <strong><th:block th:text="${email.getEmail()}"></th:block></strong>
                 <a>with roles: </a>
-                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRole()}"></th:block>
+                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRoleWithoutPrefix()}"></th:block>
              </span>
 
             <!--                кнопка выхода-->
@@ -122,8 +122,11 @@
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>Role</b></div>
-                                        <input type="text" name="role" class="form-control"
-                                               placeholder="Role">
+                                        <select multiple class="form-control" size="2">
+                                            <option>
+
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -171,7 +174,11 @@
                                         <td th:text="${user.getLastname()}">123</td>
                                         <td th:text="${user.getAge()}">123</td>
                                         <td th:text="${user.getUsername()}">123</td>
-                                        <td th:text="${user.getRoles()}">123</td>
+                                        <td>
+                                            <th:block th:each="role : ${user.getRoles()}"
+                                                      th:text="${role.getRoleWithoutPrefix()}">
+                                            </th:block>
+                                        </td>
                                         <td>
                                             <button type="button" class="btn btn-info" style="color: white"
                                                     data-toggle="modal" data-target="modalEdit"

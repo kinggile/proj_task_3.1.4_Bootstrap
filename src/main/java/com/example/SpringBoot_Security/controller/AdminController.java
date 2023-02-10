@@ -1,8 +1,8 @@
 package com.example.SpringBoot_Security.controller;
 
 import com.example.SpringBoot_Security.model.User;
+import com.example.SpringBoot_Security.service.RoleService;
 import com.example.SpringBoot_Security.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +15,11 @@ import java.security.Principal;
 public class AdminController {
 
     private final UserService userService;
+    private final RoleService roleService;
 
-    public AdminController(UserService userService) {
+    public AdminController(UserService userService, RoleService roleService) {
         this.userService = userService;
+        this.roleService = roleService;
     }
 
     @GetMapping()
@@ -30,7 +32,8 @@ public class AdminController {
     }
 
     @GetMapping("/new")
-    public String newUser(@ModelAttribute("user") User user) {
+    public String newUser(@ModelAttribute("user") User user, Model model) {
+        model.addAttribute("role", roleService.getAllRoles());
         return "admin/adminPanel";
     }
 
