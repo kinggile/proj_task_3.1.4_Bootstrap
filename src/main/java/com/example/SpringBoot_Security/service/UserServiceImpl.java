@@ -20,17 +20,13 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-//    private Set<Role> roles;
-    private final RoleService roleService;
 
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-//    }
 
-    public UserServiceImpl(UserRepository userRepository,
-                           RoleService roleService) {
+
+
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.roleService = roleService;
+        ;
     }
 
     @Override
@@ -41,7 +37,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void save(User user) {
-//        user.setRoles(roleService.getAllRolesSet());
         userRepository.save(user);
     }
 

@@ -9,6 +9,4 @@ public interface RoleService {
     void save(Role role);
 
     List<Role> getAllRoles();
-
-//    Set<Role> getAllRolesSet();
 }
