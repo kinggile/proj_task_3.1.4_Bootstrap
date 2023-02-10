@@ -78,7 +78,7 @@
                             <div class="h4" style="margin: auto 7px auto; padding: 9px">Add new user</div>
                         </div>
                         <div class="container-fluid bg-white" style="padding: 20px">
-                            <form th:method="POST" th:action="@{/admin}" th:object="${user}">
+                            <form th:method="POST" th:action="@{/admin}">
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>First name</b></div>
@@ -126,10 +126,13 @@
                                                placeholder="Role">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="col-12 text-center" style="padding: 14px" >
+                                        <button type="submit" class="btn btn-success">ADD</button>
+                                    </div>
+                                </div>
                             </form>
-                            <div class="col-12 text-center" style="padding: 10px" >
-                                <button type="submit" class="btn btn-success mt-3">ADD</button>
-                            </div>
                         </div>
                     </div>
 
