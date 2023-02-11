@@ -6,6 +6,7 @@ import com.example.SpringBoot_Security.model.Role;
 import com.example.SpringBoot_Security.repository.RoleRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -27,5 +28,17 @@ public class RoleServiceImpl implements RoleService {
     public List<Role> getAllRoles() {
         return roleRepository.findAll();
     }
-    
+
+//    @Override
+//    public Set<Role> setAdminRole() {
+//        HashSet<Role> roleAdmin = new HashSet<>();
+//        roleAdmin.add(new Role("ROLE_ADMIN"));
+//        return roleAdmin;
+//    }
+//
+//    @Override
+//    public Set<Role> setUserRole() {
+//        HashSet<Role> roleUser = new HashSet<>();
+//        roleUser.add(new Role("ROLE_USER"));
+//        return roleUser;    }
 }

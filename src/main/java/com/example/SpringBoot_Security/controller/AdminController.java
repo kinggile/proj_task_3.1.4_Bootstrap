@@ -1,5 +1,6 @@
 package com.example.SpringBoot_Security.controller;
 
+import com.example.SpringBoot_Security.model.Role;
 import com.example.SpringBoot_Security.model.User;
 import com.example.SpringBoot_Security.service.RoleService;
 import com.example.SpringBoot_Security.service.UserService;
@@ -8,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Controller
@@ -38,8 +41,12 @@ public class AdminController {
         return "admin/adminPanel";
     }
 
+    // todo неправильно реализован сет ролей для юзера
     @PostMapping()
     public String createNewUser(@ModelAttribute("user") User user) {
+        Set<Role> roles = new HashSet<>(roleService.getAllRoles());
+        user.setRoles(roles);
+
         userService.save(user);
 
         return "redirect:/admin";

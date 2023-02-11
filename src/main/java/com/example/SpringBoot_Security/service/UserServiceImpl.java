@@ -21,12 +21,8 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-
-
-
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        ;
     }
 
     @Override
@@ -37,6 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void save(User user) {
+        user.setRoles(user.getRoles());
         userRepository.save(user);
     }
 
