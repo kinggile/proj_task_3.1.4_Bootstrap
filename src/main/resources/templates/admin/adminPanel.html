@@ -218,7 +218,7 @@
                                                                         <b>ID</b>
                                                                         <input type="number"
                                                                                class="form-control"
-                                                                               id="id"
+                                                                               th:name="id"
                                                                                th:value="${user.id}"
                                                                                readonly>
                                                                     </div>
@@ -231,7 +231,7 @@
                                                                         <b>First name</b>
                                                                         <input type="text"
                                                                                class="form-control"
-                                                                               id="firstname"
+                                                                               th:name="firstname"
                                                                                th:value="${user.firstname}">
                                                                     </div>
                                                                 </div>
@@ -243,7 +243,7 @@
                                                                         <b>Last name</b>
                                                                         <input type="text"
                                                                                class="form-control"
-                                                                               id="lastname"
+                                                                               th:name="lastname"
                                                                                th:value="${user.lastname}">
                                                                     </div>
                                                                 </div>
@@ -255,7 +255,7 @@
                                                                         <b>Age</b>
                                                                         <input type="number"
                                                                                class="form-control"
-                                                                               id="age"
+                                                                               th:name="age"
                                                                                th:value="${user.age}">
                                                                     </div>
                                                                 </div>
@@ -267,7 +267,7 @@
                                                                         <b>Username</b>
                                                                         <input type="text"
                                                                                class="form-control"
-                                                                               id="username"
+                                                                               th:name="username"
                                                                                th:value="${user.username}">
                                                                     </div>
                                                                 </div>
@@ -280,6 +280,7 @@
                                                                         <input type="text"
                                                                                class="form-control"
                                                                                id="password"
+                                                                               th:name="password"
                                                                                th:value="${user.password}">
                                                                     </div>
                                                                 </div>
@@ -292,7 +293,8 @@
                                                                         <select multiple class="form-control" size="2">
                                                                             <option th:each="role : ${roleUser}"
                                                                                     th:text="${role.roleWithoutPrefix} + ' '"
-                                                                                    th:value="${role.id}">
+                                                                                    th:value="${role.id}"
+                                                                                    th:name="role">
                                                                             </option>
                                                                         </select>
                                                                     </div>
