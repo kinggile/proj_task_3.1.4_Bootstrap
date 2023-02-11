@@ -185,7 +185,7 @@
                                         <!--                                        EDIT BUTTON-->
                                         <td>
                                             <button type="button" class="btn btn-info" style="color: white"
-                                                    data-bs-toggle="modal" data-bs-target="#edit">
+                                                    data-bs-toggle="modal" th:data-bs-target="${'#edit' + user.id}">
                                                 Edit
                                             </button>
                                         </td>
@@ -198,7 +198,8 @@
                                         </td>
 
                                         <!--                                        MODAL EDIT-->
-                                        <div class="modal fade" id="edit" tabindex="-1" aria-hidden="true">
+                                        <div class="modal fade" th:id="${'edit' + user.id}" tabindex="-1"
+                                             aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -210,18 +211,36 @@
 
                                                         <div class="row justify-content-center">
                                                             <div class="col-6">
-                                                                <div class="text-center"><b>ID</b></div>
-                                                                <input type="text" name="password" class="form-control"
-                                                                       placeholder="Password">
+                                                                <div class="text-center">
+                                                                    <b>ID</b>
+                                                                    <input type="number"
+                                                                           class="form-control"
+                                                                           id="id"
+                                                                           th:value="${user.id}"
+                                                                           readonly>
+                                                                </div>
                                                             </div>
                                                         </div>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center">
+                                                                    <b>ID</b>
+                                                                    <input type="text"
+                                                                           class="form-control"
+                                                                           id="firstname"
+                                                                           th:value="${user.firstname}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
 
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Close
                                                         </button>
-                                                        <button type="button" class="btn btn-primary">Save changes
+                                                        <button type="submit" class="btn btn-primary">Save changes
                                                         </button>
                                                     </div>
                                                 </div>
