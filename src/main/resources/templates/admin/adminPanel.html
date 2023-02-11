@@ -120,19 +120,19 @@
                                     </div>
                                 </div>
 
+                                <!--                                выбор роли для юзера -->
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>Role</b></div>
                                         <select multiple class="form-control" size="2" id="role">
                                             <option th:each="role : ${roleUser}"
-                                            th:value="${role.getRole()}"
-                                            th:text="${role.getRoleWithoutPrefix()}">
-
-
+                                                    th:text="${role.roleWithoutPrefix} + ' '"
+                                                    th:value="${role.id}">
                                             </option>
                                         </select>
                                     </div>
                                 </div>
+                                <!--                                конец выбора роли для юзера-->
 
                                 <div class="form-group">
                                     <div class="col-12 text-center" style="padding: 14px">
@@ -181,33 +181,48 @@
                                                       th:text="${role.getRoleWithoutPrefix()}">
                                             </th:block>
                                         </td>
+
+                                        <!--                                        EDIT BUTTON-->
                                         <td>
                                             <button type="button" class="btn btn-info" style="color: white"
-                                                    data-toggle="modal" data-target="modalEdit"
-                                                    th:href="${user.getId()}">Edit
+                                                    data-bs-toggle="modal" data-bs-target="#edit">
+                                                Edit
                                             </button>
                                         </td>
+
+                                        <!--                                        DELETE BUTTON-->
                                         <td>
                                             <button type="button" class="btn btn-danger"
                                                     data-toggle="modal">Delete
                                             </button>
                                         </td>
 
-                                        <!--                Модальное окно редактирования-->
-                                        <div class="modal" th:id="${user.getId()}" tabindex="-1">
+                                        <!--                                        MODAL EDIT-->
+                                        <div class="modal fade" id="edit" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="modalEdit">Modal title</h5>
-                                                        <button type="button" class="btn-close"
+                                                        <h5 class="modal-title">Edit user</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        123213
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center"><b>ID</b></div>
+                                                                <input type="text" name="password" class="form-control"
+                                                                       placeholder="Password">
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary">Close</button>
-                                                        <button type="button" class="btn btn-primary">Edit</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary">Save changes
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>

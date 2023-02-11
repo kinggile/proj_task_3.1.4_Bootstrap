@@ -2,6 +2,7 @@ package com.example.SpringBoot_Security.controller;
 
 import com.example.SpringBoot_Security.model.Role;
 import com.example.SpringBoot_Security.model.User;
+import com.example.SpringBoot_Security.repository.UserRepository;
 import com.example.SpringBoot_Security.service.RoleService;
 import com.example.SpringBoot_Security.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -19,10 +20,13 @@ public class AdminController {
 
     private final UserService userService;
     private final RoleService roleService;
+    private final UserRepository userRepository;
 
-    public AdminController(UserService userService, RoleService roleService) {
+    public AdminController(UserService userService, RoleService roleService,
+                           UserRepository userRepository) {
         this.userService = userService;
         this.roleService = roleService;
+        this.userRepository = userRepository;
     }
 
     @GetMapping()
@@ -36,8 +40,8 @@ public class AdminController {
     }
 
     @GetMapping("/new")
-    public String newUser(@ModelAttribute("user") User user, Model model) {
-//        model.addAttribute("roleUser", roleService.getAllRoles());
+    public String newUser(@ModelAttribute("user") User user, Model model, @ModelAttribute("roles") Role role) {
+        model.addAttribute("roleUser", role.getRole());
         return "admin/adminPanel";
     }
 
@@ -46,7 +50,6 @@ public class AdminController {
     public String createNewUser(@ModelAttribute("user") User user) {
         Set<Role> roles = new HashSet<>(roleService.getAllRoles());
         user.setRoles(roles);
-
         userService.save(user);
 
         return "redirect:/admin";
