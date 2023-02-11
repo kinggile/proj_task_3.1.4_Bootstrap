@@ -58,7 +58,7 @@ public class AdminController {
     @GetMapping("/edit/{id}")
     public String editUser(Model model, @PathVariable("id") Long id) {
         model.addAttribute("user", userService.getOneUser(id));
-        return "admin/edit";
+        return "admin/adminPanel";
     }
 
     @PatchMapping("/edit/{id}")
