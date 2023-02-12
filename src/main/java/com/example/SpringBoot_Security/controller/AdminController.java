@@ -20,13 +20,10 @@ public class AdminController {
 
     private final UserService userService;
     private final RoleService roleService;
-    private final UserRepository userRepository;
 
-    public AdminController(UserService userService, RoleService roleService,
-                           UserRepository userRepository) {
+    public AdminController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
-        this.userRepository = userRepository;
     }
 
     @GetMapping()

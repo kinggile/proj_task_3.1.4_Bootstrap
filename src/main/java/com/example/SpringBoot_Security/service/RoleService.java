@@ -10,7 +10,5 @@ public interface RoleService {
 
     List<Role> getAllRoles();
 
-//    Set<Role> setAdminRole();
-//
-//    Set<Role> setUserRole();
+    Role getOneRole(Long id);
 }
