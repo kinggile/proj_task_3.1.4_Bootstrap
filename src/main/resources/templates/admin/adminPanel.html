@@ -124,7 +124,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>Role</b></div>
-                                        <select multiple class="form-control" size="2" id="role">
+                                        <select multiple class="form-control" size="2" id="role" name="role">
                                             <option th:each="role : ${roleUser}"
                                                     th:text="${role.roleWithoutPrefix} + ' '"
                                                     th:value="${role.id}">

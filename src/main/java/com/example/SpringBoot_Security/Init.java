@@ -22,8 +22,8 @@ public class Init {
     private final UserService userService;
     private final RoleService roleService;
 
-    public final Role roleAdmin = new Role("ROLE_ADMIN");
-    public final Role roleUser = new Role("ROLE_USER");
+    private final Role roleAdmin = new Role("ROLE_ADMIN");
+    private final Role roleUser = new Role("ROLE_USER");
 
     public Init(UserService userService, RoleService roleService) {
         this.userService = userService;

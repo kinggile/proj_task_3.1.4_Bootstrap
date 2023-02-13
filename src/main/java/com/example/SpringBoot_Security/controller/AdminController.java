@@ -44,10 +44,10 @@ public class AdminController {
 
     // todo неправильно реализован сет ролей для юзера
     @PostMapping()
-    public String createNewUser(@ModelAttribute("user") User user, @RequestParam(defaultValue = "2") long[] id) {
+    public String createNewUser(@ModelAttribute("user") User user,@RequestParam(name = "role", defaultValue = "0") Long[] id, Model model) {
         Set<Role> roles = new HashSet<>(roleService.getRoles(id));
         user.setRoles(roles);
-
+//        model.addAttribute("roleUser", user.getRoles());
 
         userService.save(user);
 

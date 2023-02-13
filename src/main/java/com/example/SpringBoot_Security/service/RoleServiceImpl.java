@@ -35,15 +35,17 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Set<Role> getRoles(long[] roleId) {
+    public Set<Role> getRoles(Long[] roleId) {
+
         Set<Role> roleResult = new HashSet<>();
 
+
         if (roleId == null) {
-            roleResult.add(roleRepository.findById(2L).orElse(null));
+            roleResult.add(roleRepository.findAll().get(1));
         } else {
-            for (long id : roleId) {
-                List<Role> roles = getAllRoles();
-                roleResult.add(roles.stream().filter(role -> role.getId() == id).findAny().orElse(null));
+            for (long i : roleId) {
+                List<Role> roles = roleRepository.findAll();
+                roleResult.add(roles.stream().filter(r -> r.getId() == i).findAny().orElse(null));
             }
         }
 
