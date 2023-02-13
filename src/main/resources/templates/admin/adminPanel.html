@@ -42,8 +42,8 @@
     <!--    Левая часть-->
     <div class="col-md-2 bg-white">
         <nav class="nav flex-column nav-pills p-0" style="margin: 15px auto">
-            <a class="nav-link active px-4 h6" th:href="admin">Admin</a>
-            <a class="nav-link px-4 h6" th:href="user">User</a>
+            <a class="nav-link active px-4 h6" href="admin">Admin</a>
+            <a class="nav-link px-4 h6" href="user">User</a>
         </nav>
     </div>
     <!--    конец левой части-->
@@ -120,15 +120,14 @@
                                     </div>
                                 </div>
 
-                                <!--                                выбор роли для юзера -->
+                                <!--                                выбор роли для нового юзера -->
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>Role</b></div>
                                         <select multiple class="form-control" size="2" id="role">
                                             <option th:each="role : ${roleUser}"
                                                     th:text="${role.roleWithoutPrefix} + ' '"
-                                                    th:value="${role.id}"
-                                                    th:name="role">
+                                                    th:value="${role.id}">
                                             </option>
                                         </select>
                                     </div>
@@ -179,7 +178,7 @@
                                         <td th:text="${user.getUsername()}">123</td>
                                         <td>
                                             <th:block th:each="role : ${user.getRoles()}"
-                                                      th:text="${role.getRoleWithoutPrefix()}">
+                                                      th:text="${role.getRoleWithoutPrefix() + ' '}">
                                             </th:block>
                                         </td>
 
@@ -294,9 +293,8 @@
                                                                         <b>Role</b>
                                                                         <select multiple class="form-control" size="2">
                                                                             <option th:each="role : ${roleUser}"
-                                                                                    th:text="${role.roleWithoutPrefix} + ' '"
-                                                                                    th:value="${role.id}"
-                                                                                    th:name="role">
+                                                                                    th:text="${role.roleWithoutPrefix}"
+                                                                                    th:value="${role.id}">
                                                                             </option>
                                                                         </select>
                                                                     </div>
@@ -415,10 +413,9 @@
                                                                         <b>Role</b>
                                                                         <select multiple class="form-control" size="2">
                                                                             <option th:each="role : ${roleUser}"
-                                                                                    th:text="${role.roleWithoutPrefix} + ' '"
+                                                                                    th:text="${role.roleWithoutPrefix}"
                                                                                     th:value="${role.id}"
-                                                                                    th:name="role"
-                                                                                    th:readonly="true">
+                                                                                    th:name="role">
                                                                             </option>
                                                                         </select>
                                                                     </div>

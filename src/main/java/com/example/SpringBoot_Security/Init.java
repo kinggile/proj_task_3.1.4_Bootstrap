@@ -8,11 +8,13 @@ import com.example.SpringBoot_Security.service.RoleService;
 import com.example.SpringBoot_Security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Component
 public class Init {
@@ -20,8 +22,8 @@ public class Init {
     private final UserService userService;
     private final RoleService roleService;
 
-    private final Role roleAdmin = new Role("ROLE_ADMIN");
-    private final Role roleUser = new Role("ROLE_USER");
+    public final Role roleAdmin = new Role("ROLE_ADMIN");
+    public final Role roleUser = new Role("ROLE_USER");
 
     public Init(UserService userService, RoleService roleService) {
         this.userService = userService;
@@ -36,12 +38,13 @@ public class Init {
 
 
         User admin = new User("Admin", "Admin", 20, "admin@mail.ru",
-                "admin", "$2a$12$x2jGJqzzWh7mp1c4bNW/MePnpkb5Q.garsy0PN9cmK3Ja0UQ3N432",
-                setAdminRole()); // pass = admin
+                "admin", "$2a$12$x2jGJqzzWh7mp1c4bNW/MePnpkb5Q.garsy0PN9cmK3Ja0UQ3N432"); // pass = admin
 
         User user = new User("User", "User", 20, "user@mail.ru",
-                "user", "$2a$12$L339r/csaPqCTKONAh2fYuiUTGRZYDkRvVUMlX7SujN9ZGSzEtKdm",
-                setRoleUser()); // pass = user
+                "user", "$2a$12$L339r/csaPqCTKONAh2fYuiUTGRZYDkRvVUMlX7SujN9ZGSzEtKdm"); // pass = user
+
+        admin.addRole(roleAdmin);
+        user.addRole(roleUser);
 
         userService.save(admin);
         userService.save(user);

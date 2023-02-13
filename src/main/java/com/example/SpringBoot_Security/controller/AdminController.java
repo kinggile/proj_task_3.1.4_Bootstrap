@@ -38,15 +38,17 @@ public class AdminController {
 
     @GetMapping("/new")
     public String newUser(@ModelAttribute("user") User user, Model model, @ModelAttribute("roles") Role role) {
-        model.addAttribute("roleUser", role.getRole());
+        model.addAttribute("roleUser", roleService.getAllRoles());
         return "admin/adminPanel";
     }
 
     // todo неправильно реализован сет ролей для юзера
     @PostMapping()
-    public String createNewUser(@ModelAttribute("user") User user) {
-//        Set<Role> roles = new HashSet<>(roleService.getAllRoles());
-        user.setRoles(user.getRoles());
+    public String createNewUser(@ModelAttribute("user") User user, @RequestParam(defaultValue = "2") long[] id) {
+        Set<Role> roles = new HashSet<>(roleService.getRoles(id));
+        user.setRoles(roles);
+
+
         userService.save(user);
 
         return "redirect:/admin";

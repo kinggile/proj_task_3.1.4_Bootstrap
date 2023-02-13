@@ -1,10 +1,10 @@
 package com.example.SpringBoot_Security.service;
 
+
 import com.example.SpringBoot_Security.model.Role;
 import com.example.SpringBoot_Security.model.User;
 import com.example.SpringBoot_Security.repository.RoleRepository;
 import com.example.SpringBoot_Security.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,9 +20,12 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     @Override
@@ -33,7 +36,13 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void save(User user) {
-        user.setRoles(user.getRoles());
+        Role roleAdmin = roleRepository.findById(1L).get();
+        Role roleUser = roleRepository.findById(2L).get();
+
+        if (user.getRoles().isEmpty()) {
+
+        }
+
         userRepository.save(user);
     }
 
