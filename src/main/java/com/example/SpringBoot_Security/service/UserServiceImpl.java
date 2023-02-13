@@ -36,13 +36,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void save(User user) {
-        Role roleAdmin = roleRepository.findById(1L).get();
-        Role roleUser = roleRepository.findById(2L).get();
-
-        if (user.getRoles().isEmpty()) {
-
-        }
-
         userRepository.save(user);
     }
 

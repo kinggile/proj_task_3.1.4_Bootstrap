@@ -26,7 +26,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    // todo сделать так, чтобы на странице юзера для юзера не была доступна кнопка admin
     @GetMapping()
     public String info(Model model, Principal principal) {
         model.addAttribute("users", userService.findByUsername(principal.getName()));
