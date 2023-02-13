@@ -42,6 +42,13 @@
 </div>
 
 
+<div th:if="${#authorization.expression('hasRole(''USER'')'}">Text visible to user.</div>
+<div th:if="${#authorization.expression('hasRole(''ADMIN'')'}">Text visible to admin.</div>
+<div th:if="${#authorization.expression('isAuthenticated()')}">
+    Text visible only to authenticated users.
+</div>
+
+
 <ul class="nav nav-tabs">
     <li class="nav-item">
         <a class="nav-link active" href="#admin-panel" data-bs-toggle="tab" role="tab">Active</a>
