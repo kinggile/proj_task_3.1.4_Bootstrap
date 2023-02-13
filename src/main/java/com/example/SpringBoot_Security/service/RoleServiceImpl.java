@@ -41,7 +41,7 @@ public class RoleServiceImpl implements RoleService {
 
 
         if (roleId == null) {
-            roleResult.add(roleRepository.findAll().get(1));
+            roleResult.add(roleRepository.findAll().get(0));
         } else {
             for (long i : roleId) {
                 List<Role> roles = roleRepository.findAll();
