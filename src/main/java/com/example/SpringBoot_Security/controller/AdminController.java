@@ -42,9 +42,8 @@ public class AdminController {
         return "admin/adminPanel";
     }
 
-    // todo неправильно реализован сет ролей для юзера
     @PostMapping()
-    public String createNewUser(@ModelAttribute("user") User user,@RequestParam(name = "role", defaultValue = "0") Long[] id) {
+    public String createNewUser(@ModelAttribute("user") User user, @RequestParam(name = "role", defaultValue = "0") Long[] id) {
         Set<Role> roles = new HashSet<>(roleService.getRoles(id));
         user.setRoles(roles);
 
@@ -52,12 +51,6 @@ public class AdminController {
 
         return "redirect:/admin";
     }
-
-//    @GetMapping("/edit/{id}")
-//    public String editUser(Model model, @PathVariable("id") Long id) {
-//        model.addAttribute("user", userService.getOneUser(id));
-//        return "admin/adminPanel";
-//    }
 
     @PatchMapping("/edit/{id}")
     public String editUser(@ModelAttribute("user") User user, @RequestParam(name = "role", defaultValue = "0") Long[] id) {
