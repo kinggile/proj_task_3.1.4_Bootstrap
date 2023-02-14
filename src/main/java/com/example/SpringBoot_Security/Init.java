@@ -44,24 +44,11 @@ public class Init {
                 "user", "$2a$12$L339r/csaPqCTKONAh2fYuiUTGRZYDkRvVUMlX7SujN9ZGSzEtKdm"); // pass = user
 
         admin.addRole(roleAdmin);
+//        admin.addRole(roleUser);
         user.addRole(roleUser);
 
         userService.save(admin);
         userService.save(user);
 
-    }
-
-    public Set<Role> setAdminRole() {
-        Set<Role> adminSet = new HashSet<>();
-        adminSet.add(roleAdmin);
-
-        return adminSet;
-    }
-
-    public Set<Role> setRoleUser() {
-        Set<Role> userSet = new HashSet<>();
-        userSet.add(roleUser);
-
-        return userSet;
     }
 }

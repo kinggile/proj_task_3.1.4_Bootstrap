@@ -5,7 +5,6 @@ import com.example.SpringBoot_Security.repository.RoleRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.TypedQuery;
 import java.util.*;
 
 @Service

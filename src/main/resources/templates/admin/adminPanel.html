@@ -19,7 +19,7 @@
             <span class="navbar-text text-white" style="margin: auto 10px auto">
                 <strong><th:block th:text="${email.getEmail()}"></th:block></strong>
                 <a>with roles: </a>
-                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRoleWithoutPrefix()}"></th:block>
+                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRoleWithoutPrefix() + ' '}"></th:block>
              </span>
 
             <!--                кнопка выхода-->
