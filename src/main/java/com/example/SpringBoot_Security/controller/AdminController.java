@@ -2,9 +2,9 @@ package com.example.SpringBoot_Security.controller;
 
 import com.example.SpringBoot_Security.model.Role;
 import com.example.SpringBoot_Security.model.User;
-import com.example.SpringBoot_Security.repository.UserRepository;
 import com.example.SpringBoot_Security.service.RoleService;
 import com.example.SpringBoot_Security.service.UserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,10 +20,12 @@ public class AdminController {
 
     private final UserService userService;
     private final RoleService roleService;
+    private final PasswordEncoder passwordEncoder;
 
-    public AdminController(UserService userService, RoleService roleService) {
+    public AdminController(UserService userService, RoleService roleService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping()
@@ -46,6 +48,7 @@ public class AdminController {
     public String createNewUser(@ModelAttribute("user") User user, @RequestParam(name = "role", defaultValue = "0") Long[] id) {
         Set<Role> roles = new HashSet<>(roleService.getRoles(id));
         user.setRoles(roles);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userService.save(user);
 

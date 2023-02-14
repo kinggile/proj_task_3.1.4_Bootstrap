@@ -13,5 +13,5 @@ public interface RoleService {
 
     Role getOneRole(Long id);
 
-    public Set<Role> getRoles(Long[] roleId);
+    Set<Role> getRoles(Long[] roleId);
 }

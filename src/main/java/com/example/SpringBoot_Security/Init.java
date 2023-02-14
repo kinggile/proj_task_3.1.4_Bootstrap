@@ -2,18 +2,11 @@ package com.example.SpringBoot_Security;
 
 import com.example.SpringBoot_Security.model.Role;
 import com.example.SpringBoot_Security.model.User;
-import com.example.SpringBoot_Security.repository.RoleRepository;
-import com.example.SpringBoot_Security.repository.UserRepository;
 import com.example.SpringBoot_Security.service.RoleService;
 import com.example.SpringBoot_Security.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Component
